@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:io_node-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -664,7 +663,7 @@ Wire Wire Line
 Wire Wire Line
 	8700 2700 8700 2900
 Wire Wire Line
-	8700 2900 7200 2900
+	8700 2900 8500 2900
 Connection ~ 8700 2700
 Text Label 7500 2900 0    50   ~ 0
 USART2_DE
@@ -1266,7 +1265,7 @@ F 4 "C8598" H 2400 1800 50  0001 C CNN "LCSC"
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	2350 800  1350 800 
+	2350 800  1950 800 
 Wire Wire Line
 	2300 1800 2100 1800
 Wire Wire Line
@@ -1281,9 +1280,9 @@ Wire Wire Line
 	2700 800  2700 1050
 Connection ~ 2700 1050
 Text Label 1500 1000 0    50   ~ 0
-USB_DP
+USB_CONN_DP
 Text Label 1500 1100 0    50   ~ 0
-USB_DM
+USB_CONN_DM
 Wire Wire Line
 	7200 3800 8000 3800
 Wire Wire Line
@@ -1343,4 +1342,104 @@ Text Label 4900 2700 0    50   ~ 0
 BOOT0
 Wire Wire Line
 	4200 1050 4500 1050
+$Comp
+L Device:R_Small R61
+U 1 1 5F85D3DD
+P 8500 3050
+F 0 "R61" H 8559 3096 50  0000 L CNN
+F 1 "10K" H 8559 3005 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 8500 3050 50  0001 C CNN
+F 3 "~" H 8500 3050 50  0001 C CNN
+F 4 "C25804" H 8500 3050 50  0001 C CNN "LCSC"
+	1    8500 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0106
+U 1 1 5F85D3E3
+P 8500 3200
+F 0 "#PWR0106" H 8500 2950 50  0001 C CNN
+F 1 "GND" H 8505 3027 50  0001 C CNN
+F 2 "" H 8500 3200 50  0001 C CNN
+F 3 "" H 8500 3200 50  0001 C CNN
+	1    8500 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8500 3150 8500 3200
+Wire Wire Line
+	8500 2900 8500 2950
+Connection ~ 8500 2900
+Wire Wire Line
+	8500 2900 7200 2900
+$Comp
+L Power_Protection:USBLC6-2SC6 U15
+U 1 1 5F87B333
+P 4800 7000
+F 0 "U15" H 4550 7350 50  0000 C CNN
+F 1 "USBLC6-2SC6" H 5200 7350 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 4050 7400 50  0001 C CNN
+F 3 "http://www2.st.com/resource/en/datasheet/CD00050750.pdf" H 5000 7350 50  0001 C CNN
+F 4 "C7519" H 4800 7000 50  0001 C CNN "LCSC"
+	1    4800 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0107
+U 1 1 5F87DDCB
+P 4800 7550
+F 0 "#PWR0107" H 4800 7300 50  0001 C CNN
+F 1 "GND" H 4805 7377 50  0001 C CNN
+F 2 "" H 4800 7550 50  0001 C CNN
+F 3 "" H 4800 7550 50  0001 C CNN
+	1    4800 7550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 7500 4800 7550
+$Comp
+L power:VBUS #PWR0108
+U 1 1 5F88D8F2
+P 1950 700
+F 0 "#PWR0108" H 1950 550 50  0001 C CNN
+F 1 "VBUS" H 1965 873 50  0000 C CNN
+F 2 "" H 1950 700 50  0001 C CNN
+F 3 "" H 1950 700 50  0001 C CNN
+	1    1950 700 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1950 700  1950 800 
+Connection ~ 1950 800 
+Wire Wire Line
+	1950 800  1350 800 
+$Comp
+L power:VBUS #PWR0109
+U 1 1 5F89D2F7
+P 4800 6450
+F 0 "#PWR0109" H 4800 6300 50  0001 C CNN
+F 1 "VBUS" H 4815 6623 50  0000 C CNN
+F 2 "" H 4800 6450 50  0001 C CNN
+F 3 "" H 4800 6450 50  0001 C CNN
+	1    4800 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 6450 4800 6500
+Wire Wire Line
+	5300 6900 5900 6900
+Wire Wire Line
+	5300 7100 5900 7100
+Wire Wire Line
+	4300 6900 3450 6900
+Wire Wire Line
+	4300 7100 3450 7100
+Text Label 3600 6900 0    50   ~ 0
+USB_CONN_DM
+Text Label 3600 7100 0    50   ~ 0
+USB_CONN_DP
+Text Label 5500 6900 0    50   ~ 0
+USB_DM
+Text Label 5500 7100 0    50   ~ 0
+USB_DP
 $EndSCHEMATC
