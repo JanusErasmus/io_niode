@@ -1,0 +1,713 @@
+EESchema Schematic File Version 4
+LIBS:io_node-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 4
+Title "IO Node - Wroom"
+Date ""
+Rev "1"
+Comp ""
+Comment1 "Input"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 2100 1000 0    50   Input ~ 0
+DOT_0
+Text HLabel 3350 1000 2    50   Output ~ 0
+OUTPUT_0
+Text HLabel 2100 3000 0    50   Input ~ 0
+DOT_2
+Text HLabel 3350 3000 2    50   Output ~ 0
+OUTPUT_2
+Text HLabel 2100 2050 0    50   Input ~ 0
+DOT_1
+Text HLabel 3350 2050 2    50   Output ~ 0
+OUTPUT_1
+Text HLabel 2100 4000 0    50   Input ~ 0
+DOT_3
+Text HLabel 3350 4000 2    50   Output ~ 0
+OUTPUT_3
+Text HLabel 5800 1000 0    50   Input ~ 0
+DOT_4
+Text HLabel 7050 1000 2    50   Output ~ 0
+OUTPUT_4
+$Comp
+L Device:R_Small R?
+U 1 1 5F8F5586
+P 2450 1500
+AR Path="/5F8F5586" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F8F5586" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F8F5586" Ref="R38"  Part="1" 
+F 0 "R38" H 2509 1546 50  0000 L CNN
+F 1 "10K" H 2509 1455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2450 1500 50  0001 C CNN
+F 3 "~" H 2450 1500 50  0001 C CNN
+F 4 "C25804" H 2450 1500 50  0001 C CNN "LCSC"
+	1    2450 1500
+	1    0    0    -1  
+$EndComp
+Text HLabel 5800 2050 0    50   Input ~ 0
+DOT_5
+Text HLabel 7050 2050 2    50   Output ~ 0
+OUTPUT_5
+Text HLabel 5800 3000 0    50   Input ~ 0
+DOT_6
+Text HLabel 7050 3000 2    50   Output ~ 0
+OUTPUT_6
+Text HLabel 5800 4000 0    50   Input ~ 0
+DOT_7
+Text HLabel 7050 4000 2    50   Output ~ 0
+OUTPUT_7
+$Comp
+L Transistor_FET:2N7002 Q1
+U 1 1 5F868E28
+P 3000 1350
+F 0 "Q1" H 3205 1396 50  0000 L CNN
+F 1 "2N7002" H 3205 1305 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3200 1275 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 3000 1350 50  0001 L CNN
+F 4 "C8545" H 3000 1350 50  0001 C CNN "LCSC"
+	1    3000 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5F88046F
+P 2450 1200
+AR Path="/5F88046F" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F88046F" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F88046F" Ref="R37"  Part="1" 
+F 0 "R37" H 2509 1246 50  0000 L CNN
+F 1 "1K" H 2509 1155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2450 1200 50  0001 C CNN
+F 3 "~" H 2450 1200 50  0001 C CNN
+F 4 "C21190" H 2450 1200 50  0001 C CNN "LCSC"
+	1    2450 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 1000 2450 1000
+Wire Wire Line
+	2450 1000 2450 1100
+Wire Wire Line
+	3350 1000 3100 1000
+Wire Wire Line
+	3100 1000 3100 1150
+Wire Wire Line
+	2800 1350 2450 1350
+Wire Wire Line
+	2450 1350 2450 1300
+Wire Wire Line
+	2450 1350 2450 1400
+Connection ~ 2450 1350
+$Comp
+L power:GND #PWR03
+U 1 1 5F880567
+P 2450 1650
+F 0 "#PWR03" H 2450 1400 50  0001 C CNN
+F 1 "GND" H 2455 1477 50  0000 C CNN
+F 2 "" H 2450 1650 50  0001 C CNN
+F 3 "" H 2450 1650 50  0001 C CNN
+	1    2450 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR056
+U 1 1 5F880585
+P 3100 1650
+F 0 "#PWR056" H 3100 1400 50  0001 C CNN
+F 1 "GND" H 3105 1477 50  0000 C CNN
+F 2 "" H 3100 1650 50  0001 C CNN
+F 3 "" H 3100 1650 50  0001 C CNN
+	1    3100 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 1600 2450 1650
+Wire Wire Line
+	3100 1550 3100 1650
+$Comp
+L Device:R_Small R?
+U 1 1 5F8808F0
+P 2450 2550
+AR Path="/5F8808F0" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F8808F0" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F8808F0" Ref="R43"  Part="1" 
+F 0 "R43" H 2509 2596 50  0000 L CNN
+F 1 "10K" H 2509 2505 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2450 2550 50  0001 C CNN
+F 3 "~" H 2450 2550 50  0001 C CNN
+F 4 "C25804" H 2450 2550 50  0001 C CNN "LCSC"
+	1    2450 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:2N7002 Q3
+U 1 1 5F8808F8
+P 3000 2400
+F 0 "Q3" H 3205 2446 50  0000 L CNN
+F 1 "2N7002" H 3205 2355 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3200 2325 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 3000 2400 50  0001 L CNN
+F 4 "C8545" H 3000 2400 50  0001 C CNN "LCSC"
+	1    3000 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5F880900
+P 2450 2250
+AR Path="/5F880900" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F880900" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F880900" Ref="R41"  Part="1" 
+F 0 "R41" H 2509 2296 50  0000 L CNN
+F 1 "1K" H 2509 2205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2450 2250 50  0001 C CNN
+F 3 "~" H 2450 2250 50  0001 C CNN
+F 4 "C21190" H 2450 2250 50  0001 C CNN "LCSC"
+	1    2450 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 2050 2450 2050
+Wire Wire Line
+	2450 2050 2450 2150
+Wire Wire Line
+	3350 2050 3100 2050
+Wire Wire Line
+	3100 2050 3100 2200
+Wire Wire Line
+	2800 2400 2450 2400
+Wire Wire Line
+	2450 2400 2450 2350
+Wire Wire Line
+	2450 2400 2450 2450
+Connection ~ 2450 2400
+$Comp
+L power:GND #PWR059
+U 1 1 5F88090F
+P 2450 2700
+F 0 "#PWR059" H 2450 2450 50  0001 C CNN
+F 1 "GND" H 2455 2527 50  0000 C CNN
+F 2 "" H 2450 2700 50  0001 C CNN
+F 3 "" H 2450 2700 50  0001 C CNN
+	1    2450 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR060
+U 1 1 5F880915
+P 3100 2700
+F 0 "#PWR060" H 3100 2450 50  0001 C CNN
+F 1 "GND" H 3105 2527 50  0000 C CNN
+F 2 "" H 3100 2700 50  0001 C CNN
+F 3 "" H 3100 2700 50  0001 C CNN
+	1    3100 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 2650 2450 2700
+Wire Wire Line
+	3100 2600 3100 2700
+$Comp
+L Device:R_Small R?
+U 1 1 5F880ABC
+P 2450 3500
+AR Path="/5F880ABC" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F880ABC" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F880ABC" Ref="R47"  Part="1" 
+F 0 "R47" H 2509 3546 50  0000 L CNN
+F 1 "10K" H 2509 3455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2450 3500 50  0001 C CNN
+F 3 "~" H 2450 3500 50  0001 C CNN
+F 4 "C25804" H 2450 3500 50  0001 C CNN "LCSC"
+	1    2450 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:2N7002 Q5
+U 1 1 5F880AC4
+P 3000 3350
+F 0 "Q5" H 3205 3396 50  0000 L CNN
+F 1 "2N7002" H 3205 3305 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3200 3275 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 3000 3350 50  0001 L CNN
+F 4 "C8545" H 3000 3350 50  0001 C CNN "LCSC"
+	1    3000 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5F880ACC
+P 2450 3200
+AR Path="/5F880ACC" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F880ACC" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F880ACC" Ref="R45"  Part="1" 
+F 0 "R45" H 2509 3246 50  0000 L CNN
+F 1 "1K" H 2509 3155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2450 3200 50  0001 C CNN
+F 3 "~" H 2450 3200 50  0001 C CNN
+F 4 "C21190" H 2450 3200 50  0001 C CNN "LCSC"
+	1    2450 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 3000 2450 3000
+Wire Wire Line
+	2450 3000 2450 3100
+Wire Wire Line
+	3350 3000 3100 3000
+Wire Wire Line
+	3100 3000 3100 3150
+Wire Wire Line
+	2800 3350 2450 3350
+Wire Wire Line
+	2450 3350 2450 3300
+Wire Wire Line
+	2450 3350 2450 3400
+Connection ~ 2450 3350
+$Comp
+L power:GND #PWR063
+U 1 1 5F880ADB
+P 2450 3650
+F 0 "#PWR063" H 2450 3400 50  0001 C CNN
+F 1 "GND" H 2455 3477 50  0000 C CNN
+F 2 "" H 2450 3650 50  0001 C CNN
+F 3 "" H 2450 3650 50  0001 C CNN
+	1    2450 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR064
+U 1 1 5F880AE1
+P 3100 3650
+F 0 "#PWR064" H 3100 3400 50  0001 C CNN
+F 1 "GND" H 3105 3477 50  0000 C CNN
+F 2 "" H 3100 3650 50  0001 C CNN
+F 3 "" H 3100 3650 50  0001 C CNN
+	1    3100 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 3600 2450 3650
+Wire Wire Line
+	3100 3550 3100 3650
+$Comp
+L Device:R_Small R?
+U 1 1 5F880DF3
+P 2450 4500
+AR Path="/5F880DF3" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F880DF3" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F880DF3" Ref="R51"  Part="1" 
+F 0 "R51" H 2509 4546 50  0000 L CNN
+F 1 "10K" H 2509 4455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2450 4500 50  0001 C CNN
+F 3 "~" H 2450 4500 50  0001 C CNN
+F 4 "C25804" H 2450 4500 50  0001 C CNN "LCSC"
+	1    2450 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:2N7002 Q7
+U 1 1 5F880DFB
+P 3000 4350
+F 0 "Q7" H 3205 4396 50  0000 L CNN
+F 1 "2N7002" H 3205 4305 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3200 4275 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 3000 4350 50  0001 L CNN
+F 4 "C8545" H 3000 4350 50  0001 C CNN "LCSC"
+	1    3000 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5F880E03
+P 2450 4200
+AR Path="/5F880E03" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F880E03" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F880E03" Ref="R49"  Part="1" 
+F 0 "R49" H 2509 4246 50  0000 L CNN
+F 1 "1K" H 2509 4155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2450 4200 50  0001 C CNN
+F 3 "~" H 2450 4200 50  0001 C CNN
+F 4 "C21190" H 2450 4200 50  0001 C CNN "LCSC"
+	1    2450 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 4000 2450 4000
+Wire Wire Line
+	2450 4000 2450 4100
+Wire Wire Line
+	3350 4000 3100 4000
+Wire Wire Line
+	3100 4000 3100 4150
+Wire Wire Line
+	2800 4350 2450 4350
+Wire Wire Line
+	2450 4350 2450 4300
+Wire Wire Line
+	2450 4350 2450 4400
+Connection ~ 2450 4350
+$Comp
+L power:GND #PWR067
+U 1 1 5F880E12
+P 2450 4650
+F 0 "#PWR067" H 2450 4400 50  0001 C CNN
+F 1 "GND" H 2455 4477 50  0000 C CNN
+F 2 "" H 2450 4650 50  0001 C CNN
+F 3 "" H 2450 4650 50  0001 C CNN
+	1    2450 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR068
+U 1 1 5F880E18
+P 3100 4650
+F 0 "#PWR068" H 3100 4400 50  0001 C CNN
+F 1 "GND" H 3105 4477 50  0000 C CNN
+F 2 "" H 3100 4650 50  0001 C CNN
+F 3 "" H 3100 4650 50  0001 C CNN
+	1    3100 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 4600 2450 4650
+Wire Wire Line
+	3100 4550 3100 4650
+$Comp
+L Device:R_Small R?
+U 1 1 5F8814EB
+P 6150 1500
+AR Path="/5F8814EB" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F8814EB" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F8814EB" Ref="R40"  Part="1" 
+F 0 "R40" H 6209 1546 50  0000 L CNN
+F 1 "10K" H 6209 1455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6150 1500 50  0001 C CNN
+F 3 "~" H 6150 1500 50  0001 C CNN
+F 4 "C25804" H 6150 1500 50  0001 C CNN "LCSC"
+	1    6150 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:2N7002 Q2
+U 1 1 5F8814F3
+P 6700 1350
+F 0 "Q2" H 6905 1396 50  0000 L CNN
+F 1 "2N7002" H 6905 1305 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6900 1275 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 6700 1350 50  0001 L CNN
+F 4 "C8545" H 6700 1350 50  0001 C CNN "LCSC"
+	1    6700 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5F8814FB
+P 6150 1200
+AR Path="/5F8814FB" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F8814FB" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F8814FB" Ref="R39"  Part="1" 
+F 0 "R39" H 6209 1246 50  0000 L CNN
+F 1 "1K" H 6209 1155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6150 1200 50  0001 C CNN
+F 3 "~" H 6150 1200 50  0001 C CNN
+F 4 "C21190" H 6150 1200 50  0001 C CNN "LCSC"
+	1    6150 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 1000 6150 1000
+Wire Wire Line
+	6150 1000 6150 1100
+Wire Wire Line
+	7050 1000 6800 1000
+Wire Wire Line
+	6800 1000 6800 1150
+Wire Wire Line
+	6500 1350 6150 1350
+Wire Wire Line
+	6150 1350 6150 1300
+Wire Wire Line
+	6150 1350 6150 1400
+Connection ~ 6150 1350
+$Comp
+L power:GND #PWR057
+U 1 1 5F88150A
+P 6150 1650
+F 0 "#PWR057" H 6150 1400 50  0001 C CNN
+F 1 "GND" H 6155 1477 50  0000 C CNN
+F 2 "" H 6150 1650 50  0001 C CNN
+F 3 "" H 6150 1650 50  0001 C CNN
+	1    6150 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR058
+U 1 1 5F881510
+P 6800 1650
+F 0 "#PWR058" H 6800 1400 50  0001 C CNN
+F 1 "GND" H 6805 1477 50  0000 C CNN
+F 2 "" H 6800 1650 50  0001 C CNN
+F 3 "" H 6800 1650 50  0001 C CNN
+	1    6800 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 1600 6150 1650
+Wire Wire Line
+	6800 1550 6800 1650
+$Comp
+L Device:R_Small R?
+U 1 1 5F881519
+P 6150 2550
+AR Path="/5F881519" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F881519" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F881519" Ref="R44"  Part="1" 
+F 0 "R44" H 6209 2596 50  0000 L CNN
+F 1 "10K" H 6209 2505 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6150 2550 50  0001 C CNN
+F 3 "~" H 6150 2550 50  0001 C CNN
+F 4 "C25804" H 6150 2550 50  0001 C CNN "LCSC"
+	1    6150 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:2N7002 Q4
+U 1 1 5F881521
+P 6700 2400
+F 0 "Q4" H 6905 2446 50  0000 L CNN
+F 1 "2N7002" H 6905 2355 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6900 2325 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 6700 2400 50  0001 L CNN
+F 4 "C8545" H 6700 2400 50  0001 C CNN "LCSC"
+	1    6700 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5F881529
+P 6150 2250
+AR Path="/5F881529" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F881529" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F881529" Ref="R42"  Part="1" 
+F 0 "R42" H 6209 2296 50  0000 L CNN
+F 1 "1K" H 6209 2205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6150 2250 50  0001 C CNN
+F 3 "~" H 6150 2250 50  0001 C CNN
+F 4 "C21190" H 6150 2250 50  0001 C CNN "LCSC"
+	1    6150 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 2050 6150 2050
+Wire Wire Line
+	6150 2050 6150 2150
+Wire Wire Line
+	7050 2050 6800 2050
+Wire Wire Line
+	6800 2050 6800 2200
+Wire Wire Line
+	6500 2400 6150 2400
+Wire Wire Line
+	6150 2400 6150 2350
+Wire Wire Line
+	6150 2400 6150 2450
+Connection ~ 6150 2400
+$Comp
+L power:GND #PWR061
+U 1 1 5F881538
+P 6150 2700
+F 0 "#PWR061" H 6150 2450 50  0001 C CNN
+F 1 "GND" H 6155 2527 50  0000 C CNN
+F 2 "" H 6150 2700 50  0001 C CNN
+F 3 "" H 6150 2700 50  0001 C CNN
+	1    6150 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR062
+U 1 1 5F88153E
+P 6800 2700
+F 0 "#PWR062" H 6800 2450 50  0001 C CNN
+F 1 "GND" H 6805 2527 50  0000 C CNN
+F 2 "" H 6800 2700 50  0001 C CNN
+F 3 "" H 6800 2700 50  0001 C CNN
+	1    6800 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 2650 6150 2700
+Wire Wire Line
+	6800 2600 6800 2700
+$Comp
+L Device:R_Small R?
+U 1 1 5F881547
+P 6150 3500
+AR Path="/5F881547" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F881547" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F881547" Ref="R48"  Part="1" 
+F 0 "R48" H 6209 3546 50  0000 L CNN
+F 1 "10K" H 6209 3455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6150 3500 50  0001 C CNN
+F 3 "~" H 6150 3500 50  0001 C CNN
+F 4 "C25804" H 6150 3500 50  0001 C CNN "LCSC"
+	1    6150 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:2N7002 Q6
+U 1 1 5F88154F
+P 6700 3350
+F 0 "Q6" H 6905 3396 50  0000 L CNN
+F 1 "2N7002" H 6905 3305 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6900 3275 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 6700 3350 50  0001 L CNN
+F 4 "C8545" H 6700 3350 50  0001 C CNN "LCSC"
+	1    6700 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5F881557
+P 6150 3200
+AR Path="/5F881557" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F881557" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F881557" Ref="R46"  Part="1" 
+F 0 "R46" H 6209 3246 50  0000 L CNN
+F 1 "1K" H 6209 3155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6150 3200 50  0001 C CNN
+F 3 "~" H 6150 3200 50  0001 C CNN
+F 4 "C21190" H 6150 3200 50  0001 C CNN "LCSC"
+	1    6150 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 3000 6150 3000
+Wire Wire Line
+	6150 3000 6150 3100
+Wire Wire Line
+	7050 3000 6800 3000
+Wire Wire Line
+	6800 3000 6800 3150
+Wire Wire Line
+	6500 3350 6150 3350
+Wire Wire Line
+	6150 3350 6150 3300
+Wire Wire Line
+	6150 3350 6150 3400
+Connection ~ 6150 3350
+$Comp
+L power:GND #PWR065
+U 1 1 5F881566
+P 6150 3650
+F 0 "#PWR065" H 6150 3400 50  0001 C CNN
+F 1 "GND" H 6155 3477 50  0000 C CNN
+F 2 "" H 6150 3650 50  0001 C CNN
+F 3 "" H 6150 3650 50  0001 C CNN
+	1    6150 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR066
+U 1 1 5F88156C
+P 6800 3650
+F 0 "#PWR066" H 6800 3400 50  0001 C CNN
+F 1 "GND" H 6805 3477 50  0000 C CNN
+F 2 "" H 6800 3650 50  0001 C CNN
+F 3 "" H 6800 3650 50  0001 C CNN
+	1    6800 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 3600 6150 3650
+Wire Wire Line
+	6800 3550 6800 3650
+$Comp
+L Device:R_Small R?
+U 1 1 5F881575
+P 6150 4500
+AR Path="/5F881575" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F881575" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F881575" Ref="R52"  Part="1" 
+F 0 "R52" H 6209 4546 50  0000 L CNN
+F 1 "10K" H 6209 4455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6150 4500 50  0001 C CNN
+F 3 "~" H 6150 4500 50  0001 C CNN
+F 4 "C25804" H 6150 4500 50  0001 C CNN "LCSC"
+	1    6150 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:2N7002 Q8
+U 1 1 5F88157D
+P 6700 4350
+F 0 "Q8" H 6905 4396 50  0000 L CNN
+F 1 "2N7002" H 6905 4305 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6900 4275 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 6700 4350 50  0001 L CNN
+F 4 "C8545" H 6700 4350 50  0001 C CNN "LCSC"
+	1    6700 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5F881585
+P 6150 4200
+AR Path="/5F881585" Ref="R?"  Part="1" 
+AR Path="/5F8EFD7B/5F881585" Ref="R?"  Part="1" 
+AR Path="/5F99EECF/5F881585" Ref="R50"  Part="1" 
+F 0 "R50" H 6209 4246 50  0000 L CNN
+F 1 "1K" H 6209 4155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6150 4200 50  0001 C CNN
+F 3 "~" H 6150 4200 50  0001 C CNN
+F 4 "C21190" H 6150 4200 50  0001 C CNN "LCSC"
+	1    6150 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 4000 6150 4000
+Wire Wire Line
+	6150 4000 6150 4100
+Wire Wire Line
+	7050 4000 6800 4000
+Wire Wire Line
+	6800 4000 6800 4150
+Wire Wire Line
+	6500 4350 6150 4350
+Wire Wire Line
+	6150 4350 6150 4300
+Wire Wire Line
+	6150 4350 6150 4400
+Connection ~ 6150 4350
+$Comp
+L power:GND #PWR069
+U 1 1 5F881594
+P 6150 4650
+F 0 "#PWR069" H 6150 4400 50  0001 C CNN
+F 1 "GND" H 6155 4477 50  0000 C CNN
+F 2 "" H 6150 4650 50  0001 C CNN
+F 3 "" H 6150 4650 50  0001 C CNN
+	1    6150 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR070
+U 1 1 5F88159A
+P 6800 4650
+F 0 "#PWR070" H 6800 4400 50  0001 C CNN
+F 1 "GND" H 6805 4477 50  0000 C CNN
+F 2 "" H 6800 4650 50  0001 C CNN
+F 3 "" H 6800 4650 50  0001 C CNN
+	1    6800 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 4600 6150 4650
+Wire Wire Line
+	6800 4550 6800 4650
+$EndSCHEMATC
