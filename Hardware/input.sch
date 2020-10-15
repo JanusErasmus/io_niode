@@ -14,9 +14,9 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 3150 1150 2    50   Input ~ 0
+Text HLabel 1600 1350 0    50   Input ~ 0
 DIN_0
-Text HLabel 1600 1350 0    50   Output ~ 0
+Text HLabel 3150 1150 2    50   Output ~ 0
 INPUT_0
 $Comp
 L Device:R_Small R?
@@ -33,33 +33,33 @@ F 4 "C25804" H 2800 1000 50  0001 C CNN "LCSC"
 	1    2800 1000
 	1    0    0    -1  
 $EndComp
-Text HLabel 3200 4100 2    50   Input ~ 0
+Text HLabel 1650 4300 0    50   Input ~ 0
 DIN_2
-Text HLabel 1650 4300 0    50   Output ~ 0
+Text HLabel 3200 4100 2    50   Output ~ 0
 INPUT_2
-Text HLabel 3200 2600 2    50   Input ~ 0
+Text HLabel 1650 2800 0    50   Input ~ 0
 DIN_1
-Text HLabel 1650 2800 0    50   Output ~ 0
+Text HLabel 3200 2600 2    50   Output ~ 0
 INPUT_1
-Text HLabel 3200 5500 2    50   Input ~ 0
+Text HLabel 1650 5700 0    50   Input ~ 0
 DIN_3
-Text HLabel 1650 5700 0    50   Output ~ 0
+Text HLabel 3200 5500 2    50   Output ~ 0
 INPUT_3
-Text HLabel 7050 1150 2    50   Input ~ 0
+Text HLabel 5500 1350 0    50   Input ~ 0
 DIN_4
-Text HLabel 5500 1350 0    50   Output ~ 0
+Text HLabel 7050 1150 2    50   Output ~ 0
 INPUT_4
-Text HLabel 7100 2600 2    50   Input ~ 0
+Text HLabel 5550 2800 0    50   Input ~ 0
 DIN_5
-Text HLabel 5550 2800 0    50   Output ~ 0
+Text HLabel 7100 2600 2    50   Output ~ 0
 INPUT_5
-Text HLabel 7100 4100 2    50   Input ~ 0
+Text HLabel 5550 4300 0    50   Input ~ 0
 DIN_6
-Text HLabel 5550 4300 0    50   Output ~ 0
+Text HLabel 7100 4100 2    50   Output ~ 0
 INPUT_6
-Text HLabel 7100 5500 2    50   Input ~ 0
+Text HLabel 5550 5700 0    50   Input ~ 0
 DIN_7
-Text HLabel 5550 5700 0    50   Output ~ 0
+Text HLabel 7100 5500 2    50   Output ~ 0
 INPUT_7
 $Comp
 L Isolator:SFH617A-3X017T U7
@@ -157,10 +157,10 @@ F 4 "C25804" H 2850 2450 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Isolator:SFH617A-3X017T U9
+L Isolator:SFH617A-3X017T U8
 U 1 1 5F884662
 P 2500 2900
-F 0 "U9" H 2500 3225 50  0000 C CNN
+F 0 "U8" H 2500 3225 50  0000 C CNN
 F 1 "EL357N-G" H 2500 3134 50  0000 C CNN
 F 2 "Package_SO:SO-4_4.4x4.3mm_P2.54mm" H 2500 2550 50  0001 C CIN
 F 3 "" H 2500 2850 50  0001 L CNN
@@ -252,10 +252,10 @@ F 4 "C25804" H 2850 3950 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Isolator:SFH617A-3X017T U11
+L Isolator:SFH617A-3X017T U9
 U 1 1 5F884912
 P 2500 4400
-F 0 "U11" H 2500 4725 50  0000 C CNN
+F 0 "U9" H 2500 4725 50  0000 C CNN
 F 1 "EL357N-G" H 2500 4634 50  0000 C CNN
 F 2 "Package_SO:SO-4_4.4x4.3mm_P2.54mm" H 2500 4050 50  0001 C CIN
 F 3 "" H 2500 4350 50  0001 L CNN
@@ -353,10 +353,10 @@ F 4 "C25804" H 2850 5350 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Isolator:SFH617A-3X017T U13
+L Isolator:SFH617A-3X017T U10
 U 1 1 5F88630B
 P 2500 5800
-F 0 "U13" H 2500 6125 50  0000 C CNN
+F 0 "U10" H 2500 6125 50  0000 C CNN
 F 1 "EL357N-G" H 2500 6034 50  0000 C CNN
 F 2 "Package_SO:SO-4_4.4x4.3mm_P2.54mm" H 2500 5450 50  0001 C CIN
 F 3 "" H 2500 5750 50  0001 L CNN
@@ -450,10 +450,10 @@ F 4 "C25804" H 6700 1000 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Isolator:SFH617A-3X017T U8
+L Isolator:SFH617A-3X017T U11
 U 1 1 5F886D5C
 P 6350 1450
-F 0 "U8" H 6350 1775 50  0000 C CNN
+F 0 "U11" H 6350 1775 50  0000 C CNN
 F 1 "EL357N-G" H 6350 1684 50  0000 C CNN
 F 2 "Package_SO:SO-4_4.4x4.3mm_P2.54mm" H 6350 1100 50  0001 C CIN
 F 3 "" H 6350 1400 50  0001 L CNN
@@ -545,10 +545,10 @@ F 4 "C25804" H 6750 2450 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Isolator:SFH617A-3X017T U10
+L Isolator:SFH617A-3X017T U12
 U 1 1 5F886D91
 P 6400 2900
-F 0 "U10" H 6400 3225 50  0000 C CNN
+F 0 "U12" H 6400 3225 50  0000 C CNN
 F 1 "EL357N-G" H 6400 3134 50  0000 C CNN
 F 2 "Package_SO:SO-4_4.4x4.3mm_P2.54mm" H 6400 2550 50  0001 C CIN
 F 3 "" H 6400 2850 50  0001 L CNN
@@ -640,10 +640,10 @@ F 4 "C25804" H 6750 3950 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Isolator:SFH617A-3X017T U12
+L Isolator:SFH617A-3X017T U13
 U 1 1 5F886DC6
 P 6400 4400
-F 0 "U12" H 6400 4725 50  0000 C CNN
+F 0 "U13" H 6400 4725 50  0000 C CNN
 F 1 "EL357N-G" H 6400 4634 50  0000 C CNN
 F 2 "Package_SO:SO-4_4.4x4.3mm_P2.54mm" H 6400 4050 50  0001 C CIN
 F 3 "" H 6400 4350 50  0001 L CNN

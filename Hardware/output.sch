@@ -15,25 +15,25 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Text HLabel 2100 1000 0    50   Input ~ 0
-DOT_0
-Text HLabel 3350 1000 2    50   Output ~ 0
 OUTPUT_0
+Text HLabel 3350 1000 2    50   Output ~ 0
+DOT_0
 Text HLabel 2100 3000 0    50   Input ~ 0
-DOT_2
-Text HLabel 3350 3000 2    50   Output ~ 0
 OUTPUT_2
+Text HLabel 3350 3000 2    50   Output ~ 0
+DOT_2
 Text HLabel 2100 2050 0    50   Input ~ 0
-DOT_1
-Text HLabel 3350 2050 2    50   Output ~ 0
 OUTPUT_1
+Text HLabel 3350 2050 2    50   Output ~ 0
+DOT_1
 Text HLabel 2100 4000 0    50   Input ~ 0
-DOT_3
-Text HLabel 3350 4000 2    50   Output ~ 0
 OUTPUT_3
+Text HLabel 3350 4000 2    50   Output ~ 0
+DOT_3
 Text HLabel 5800 1000 0    50   Input ~ 0
-DOT_4
-Text HLabel 7050 1000 2    50   Output ~ 0
 OUTPUT_4
+Text HLabel 7050 1000 2    50   Output ~ 0
+DOT_4
 $Comp
 L Device:R_Small R?
 U 1 1 5F8F5586
@@ -50,17 +50,17 @@ F 4 "C25804" H 2450 1500 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 Text HLabel 5800 2050 0    50   Input ~ 0
-DOT_5
-Text HLabel 7050 2050 2    50   Output ~ 0
 OUTPUT_5
+Text HLabel 7050 2050 2    50   Output ~ 0
+DOT_5
 Text HLabel 5800 3000 0    50   Input ~ 0
-DOT_6
-Text HLabel 7050 3000 2    50   Output ~ 0
 OUTPUT_6
+Text HLabel 7050 3000 2    50   Output ~ 0
+DOT_6
 Text HLabel 5800 4000 0    50   Input ~ 0
-DOT_7
-Text HLabel 7050 4000 2    50   Output ~ 0
 OUTPUT_7
+Text HLabel 7050 4000 2    50   Output ~ 0
+DOT_7
 $Comp
 L Transistor_FET:2N7002 Q1
 U 1 1 5F868E28
@@ -145,10 +145,10 @@ F 4 "C25804" H 2450 2550 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:2N7002 Q3
+L Transistor_FET:2N7002 Q2
 U 1 1 5F8808F8
 P 3000 2400
-F 0 "Q3" H 3205 2446 50  0000 L CNN
+F 0 "Q2" H 3205 2446 50  0000 L CNN
 F 1 "2N7002" H 3205 2355 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 3200 2325 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 3000 2400 50  0001 L CNN
@@ -228,10 +228,10 @@ F 4 "C25804" H 2450 3500 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:2N7002 Q5
+L Transistor_FET:2N7002 Q3
 U 1 1 5F880AC4
 P 3000 3350
-F 0 "Q5" H 3205 3396 50  0000 L CNN
+F 0 "Q3" H 3205 3396 50  0000 L CNN
 F 1 "2N7002" H 3205 3305 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 3200 3275 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 3000 3350 50  0001 L CNN
@@ -311,10 +311,10 @@ F 4 "C25804" H 2450 4500 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:2N7002 Q7
+L Transistor_FET:2N7002 Q4
 U 1 1 5F880DFB
 P 3000 4350
-F 0 "Q7" H 3205 4396 50  0000 L CNN
+F 0 "Q4" H 3205 4396 50  0000 L CNN
 F 1 "2N7002" H 3205 4305 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 3200 4275 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 3000 4350 50  0001 L CNN
@@ -394,10 +394,10 @@ F 4 "C25804" H 6150 1500 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:2N7002 Q2
+L Transistor_FET:2N7002 Q5
 U 1 1 5F8814F3
 P 6700 1350
-F 0 "Q2" H 6905 1396 50  0000 L CNN
+F 0 "Q5" H 6905 1396 50  0000 L CNN
 F 1 "2N7002" H 6905 1305 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 6900 1275 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 6700 1350 50  0001 L CNN
@@ -477,10 +477,10 @@ F 4 "C25804" H 6150 2550 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:2N7002 Q4
+L Transistor_FET:2N7002 Q6
 U 1 1 5F881521
 P 6700 2400
-F 0 "Q4" H 6905 2446 50  0000 L CNN
+F 0 "Q6" H 6905 2446 50  0000 L CNN
 F 1 "2N7002" H 6905 2355 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 6900 2325 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 6700 2400 50  0001 L CNN
@@ -560,10 +560,10 @@ F 4 "C25804" H 6150 3500 50  0001 C CNN "LCSC"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:2N7002 Q6
+L Transistor_FET:2N7002 Q7
 U 1 1 5F88154F
 P 6700 3350
-F 0 "Q6" H 6905 3396 50  0000 L CNN
+F 0 "Q7" H 6905 3396 50  0000 L CNN
 F 1 "2N7002" H 6905 3305 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 6900 3275 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 6700 3350 50  0001 L CNN
