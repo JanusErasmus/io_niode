@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:io_node-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -1128,7 +1127,7 @@ U 1 1 5FC94681
 P 900 1000
 F 0 "J5" H 955 1467 50  0000 C CNN
 F 1 "USB_B_Micro" H 955 1376 50  0000 C CNN
-F 2 "Connector_USB:USB_Micro-B_GCT_USB3076-30-A" H 1050 950 50  0001 C CNN
+F 2 "Connector_USB:USB_Micro-B_Amphenol_10103594-0001LF_Horizontal" H 1050 950 50  0001 C CNN
 F 3 "~" H 1050 950 50  0001 C CNN
 	1    900  1000
 	1    0    0    -1  
