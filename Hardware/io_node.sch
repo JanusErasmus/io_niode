@@ -1043,8 +1043,6 @@ F 3 "~" H 10650 3300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7200 3400 10450 3400
-Wire Wire Line
 	10450 3300 10400 3300
 Wire Wire Line
 	10450 3100 10000 3100
@@ -1063,8 +1061,6 @@ F 3 "" H 10350 3050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	10350 3050 10350 3200
-Wire Wire Line
-	7200 3500 10450 3500
 $Comp
 L Connector_Generic:Conn_01x05 J6
 U 1 1 5FB9FC78
@@ -1675,8 +1671,6 @@ Wire Wire Line
 Wire Wire Line
 	10400 3850 10400 4800
 Connection ~ 10400 4800
-Wire Wire Line
-	10400 3300 10400 3850
 Connection ~ 10400 3850
 Wire Wire Line
 	10350 3200 10350 5300
@@ -1703,4 +1697,20 @@ Wire Wire Line
 Wire Wire Line
 	8300 2900 7200 2900
 Connection ~ 8300 2900
+Wire Wire Line
+	10450 3400 9800 3400
+Wire Wire Line
+	7200 3500 8000 3500
+Wire Wire Line
+	7200 3400 8000 3400
+Text Label 9900 3500 0    50   ~ 0
+USART1_TX
+Text Label 9900 3400 0    50   ~ 0
+USART1_RX
+Wire Wire Line
+	10400 3300 10400 3500
+Wire Wire Line
+	10400 3500 10400 3850
+Wire Wire Line
+	9800 3500 10450 3500
 $EndSCHEMATC
