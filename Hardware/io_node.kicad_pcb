@@ -1,4 +1,4 @@
-(kicad_pcb (version 20171130) (host pcbnew "(5.0.1)-4")
+(kicad_pcb (version 20171130) (host pcbnew 5.1.5+dfsg1-2build2)
 
   (general
     (thickness 1.6)
@@ -34,7 +34,7 @@
   )
 
   (setup
-    (last_trace_width 0.3)
+    (last_trace_width 0.25)
     (user_trace_width 0.3)
     (user_trace_width 0.6)
     (user_trace_width 1)
@@ -43,8 +43,6 @@
     (zone_clearance 0.508)
     (zone_45_only no)
     (trace_min 0.2)
-    (segment_width 0.2)
-    (edge_width 0.15)
     (via_size 0.8)
     (via_drill 0.4)
     (via_min_size 0.4)
@@ -54,6 +52,8 @@
     (uvias_allowed no)
     (uvia_min_size 0.2)
     (uvia_min_drill 0.1)
+    (edge_width 0.15)
+    (segment_width 0.2)
     (pcb_text_width 0.3)
     (pcb_text_size 1.5 1.5)
     (mod_edge_width 0.15)
@@ -1501,13 +1501,13 @@
     )
   )
 
-  (module Package_SO:SOIC-14_3.9x8.7mm_P1.27mm (layer F.Cu) (tedit 5A02F2D3) (tstamp 5F83C16D)
+  (module Package_SO:SOIC-14_3.9x8.7mm_P1.27mm (layer F.Cu) (tedit 5A02F2D3) (tstamp 5F904D53)
     (at 69 59 180)
     (descr "14-Lead Plastic Small Outline (SL) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")
     (tags "SOIC 1.27")
     (path /5F7EB31B/5F7EE8D2)
     (attr smd)
-    (fp_text reference U5 (at -2.75 -5.25 180) (layer F.SilkS)
+    (fp_text reference U5 (at -5.2 -4.01 180) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value LM324DT (at 0 5.375 180) (layer F.Fab)
@@ -2809,7 +2809,7 @@
     )
   )
 
-  (module Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder (layer F.Cu) (tedit 5B301BBD) (tstamp 5F8FE214)
+  (module Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder (layer F.Cu) (tedit 5B301BBD) (tstamp 5F904DD8)
     (at 70.75 81.75 180)
     (descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags "resistor handsolder")
@@ -3139,7 +3139,7 @@
     (tags "SOIC 1.27")
     (path /5F7EB31B/5F81CCA6)
     (attr smd)
-    (fp_text reference U6 (at -2.75 -5.25 180) (layer F.SilkS)
+    (fp_text reference U6 (at -5.04 -3.88 180) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value LM324DT (at 0 5.375 180) (layer F.Fab)

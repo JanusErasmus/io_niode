@@ -49,7 +49,7 @@ void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -215,7 +215,7 @@ HAL_StatusTypeDef adc_sample(float *voltages)
     if(result != HAL_OK)
     {
         // printf("ADC ERROR: %d\n", result);
-        sample_result = result;
+        return result;
     }
     raw[k] += HAL_ADC_GetValue(&hadc1);
 //    float voltage = (float)raw[k] * 0.000805860805860806;
@@ -233,11 +233,11 @@ HAL_StatusTypeDef adc_sample(float *voltages)
 
   float inputs[8];
   float step = 1.2 / (float)raw[8];
-    printf("Step %f Vref: %0.3f Vint: %f\n", step, step*4095.0, (float)raw[8]*step);
+    // printf("Step %f Vref: %0.3f Vint: %f\n", step, step*4095.0, (float)raw[8]*step);
     for(int k = 0; k < 8; k++)
     {
-        inputs[k] = (((float)raw[k] * step) + 0.0) ;
-        printf("ADC[%d]: %ld %0.3f\n", k, raw[k], inputs[k]);
+        inputs[k] = (((float)raw[k] * step) * 0.9868) ;
+        // printf("ADC[%d]: %ld %0.3f\n", k, raw[k], inputs[k]);
 
     }
 

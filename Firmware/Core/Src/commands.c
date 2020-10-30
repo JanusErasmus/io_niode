@@ -117,6 +117,19 @@ void out_debug(uint8_t argc, char **argv)
 const sTermEntry_t outEntry =
 { "o", "Set Outputs", out_debug };
 
+void temp_debug(uint8_t argc, char **argv)
+{
+    float voltages[8];
+    if(adc_sample(voltages) == HAL_OK)
+    {
+    	//first ADC is LM335
+    	float temp = (voltages[0] * 100.0) - 273.0;
+    	printf("Temperature is %0.3f\n", temp);
+    }
+}
+const sTermEntry_t tempEntry =
+{ "t", "Read Temp", temp_debug };
+
 const sTermEntry_t *cli_entries[] =
 {
       &hEntry,
@@ -126,6 +139,7 @@ const sTermEntry_t *cli_entries[] =
       &adcEntry,
 	  &inEntry,
 	  &outEntry,
+	  &tempEntry,
 //      &sonoffEntry,
 //      &rtcEntry,
 	  0
