@@ -33,7 +33,7 @@
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+int usart2_pop(uint8_t *data, int len);
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -56,8 +56,8 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
-void USB_LP_CAN1_RX0_IRQHandler(void);
 void USART1_IRQHandler(void);
+void USART2_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

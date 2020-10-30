@@ -20,8 +20,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "rtc.h"
 #include "usart.h"
-#include "usb_device.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -29,6 +29,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Utils/terminal.h"
+#include "stm32f1xx_it.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,7 +60,19 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void tx_usart2(uint8_t *data, int len)
+{
+	HAL_GPIO_WritePin(USART2_DE_GPIO_Port, USART2_DE_Pin, GPIO_PIN_SET);
+	for (int k = 0; k < len; ++k)
+	{
+		if(HAL_UART_Transmit(&huart2, data, len, 100) != HAL_OK)
+		{
+			printf("Could not transmit USART2\n");
+			break;
+		}
+	}
+	HAL_GPIO_WritePin(USART2_DE_GPIO_Port, USART2_DE_Pin, GPIO_PIN_RESET);
+}
 /* USER CODE END 0 */
 
 /**
@@ -91,8 +104,9 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
-  MX_USB_DEVICE_Init();
   MX_ADC1_Init();
+  MX_USART2_UART_Init();
+  MX_RTC_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -110,13 +124,36 @@ int main(void)
   USART1->CR1 |= USART_CR1_RXNEIE;
   USART1->CR3 |= USART_CR3_EIE;
 
+  USART2->CR1 |= USART_CR1_RXNEIE;
+  USART2->CR3 |= USART_CR3_EIE;
+
+  uint8_t data[512];
+  uint32_t tick = 0;
   while (1)
   {
-      terminal_run();
+	  terminal_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  int rx = usart2_pop(data, 512);
+	  if(rx)
+	  {
+		  for (int k = 0; k < rx; ++k)
+		  {
+			  printf("RX %02X\n", data[k]);
+		  }
+	  }
+
+//	  if(tick < HAL_GetTick())
+//	  {
+//		  tick = HAL_GetTick() + 1000;
+//		  uint8_t buff[64];
+//		  memset(buff, 0xAA, 64);
+//		  tx_usart2(buff, 12);
+//		  printf("TX\n");
+//	  }
   }
+
   /* USER CODE END 3 */
 }
 
@@ -157,9 +194,9 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC|RCC_PERIPHCLK_USB;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_ADC;
+  PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_HSE_DIV128;
   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV6;
-  PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL_DIV1_5;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();

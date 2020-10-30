@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:io_node-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -1333,13 +1332,11 @@ Wire Wire Line
 	4300 6900 3450 6900
 Wire Wire Line
 	4300 7100 3450 7100
-Text Label 3600 6900 0    50   ~ 0
-USB_CONN_DM
 Text Label 3600 7100 0    50   ~ 0
 USB_CONN_DP
 Text Label 5500 6900 0    50   ~ 0
 USB_N
-Text Label 5500 7100 0    50   ~ 0
+Text Label 3650 6900 0    50   ~ 0
 USB_P
 $Comp
 L Mechanical:MountingHole_Pad H1
@@ -1780,4 +1777,6 @@ Wire Wire Line
 	10400 5200 10450 5200
 Wire Wire Line
 	10400 4800 10400 5400
+Text Label 5450 7100 0    50   ~ 0
+USB_CONN_DM
 $EndSCHEMATC

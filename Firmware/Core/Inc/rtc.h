@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : gpio.h
-  * Description        : This file contains all the functions prototypes for
-  *                      the gpio
+  * File Name          : RTC.h
+  * Description        : This file provides code for the configuration
+  *                      of the RTC instances.
   ******************************************************************************
   * @attention
   *
@@ -16,10 +16,9 @@
   *
   ******************************************************************************
   */
-
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __gpio_H
-#define __gpio_H
+#ifndef __rtc_H
+#define __rtc_H
 #ifdef __cplusplus
  extern "C" {
 #endif
@@ -31,21 +30,22 @@
 
 /* USER CODE END Includes */
 
+extern RTC_HandleTypeDef hrtc;
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
-void MX_GPIO_Init(void);
+void MX_RTC_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-HAL_StatusTypeDef gpio_sample_in(uint8_t *inputs);
-HAL_StatusTypeDef gpio_set_out(uint8_t *outputs);
+
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
 }
 #endif
-#endif /*__ pinoutConfig_H */
+#endif /*__ rtc_H */
 
 /**
   * @}

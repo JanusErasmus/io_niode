@@ -70,6 +70,8 @@ void Error_Handler(void);
 #define IN_2_GPIO_Port GPIOC
 #define IN_3_Pin GPIO_PIN_3
 #define IN_3_GPIO_Port GPIOC
+#define USART2_DE_Pin GPIO_PIN_4
+#define USART2_DE_GPIO_Port GPIOA
 #define IN_4_Pin GPIO_PIN_4
 #define IN_4_GPIO_Port GPIOC
 #define IN_5_Pin GPIO_PIN_5
