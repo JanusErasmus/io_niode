@@ -16,7 +16,7 @@
 
 void nrfDebug(uint8_t argc, char **argv)
 {
-    cpp_report();
+    cpp_report(0);
 }
 
 const sTermEntry_t nrfEntry =
@@ -164,7 +164,7 @@ const sTermEntry_t *cli_entries[] =
 	  &tempEntry,
 	  &rsEntry,
 //      &sonoffEntry,
-	  &nrfEntry,
+//	  &nrfEntry,
       &rtcEntry,
 	  0
 };

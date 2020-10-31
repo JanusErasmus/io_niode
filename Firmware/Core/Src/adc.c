@@ -206,46 +206,47 @@ HAL_StatusTypeDef adc_sample(float *voltages)
     HAL_StatusTypeDef sample_result = HAL_OK;
     uint32_t raw[9] = {0};
 
-//    for(int l = 0; l < 8; l++)
-//      {
+    for(int l = 0; l < 8; l++)
+    {
+        for(int k = 0; k < 9; k++)
+        {
+            HAL_ADC_Start(&hadc1);
+            HAL_StatusTypeDef result = HAL_ADC_PollForConversion(&hadc1, 1000);
+            if(result != HAL_OK)
+            {
+                // printf("ADC ERROR: %d\n", result);
+                return result;
+            }
+            raw[k] += HAL_ADC_GetValue(&hadc1);
+            //    float voltage = (float)raw[k] * 0.000805860805860806;
+            //    printf("ADC[%d]: %d %0.3f\n", k, raw[k], voltage);
+
+        }
+        HAL_Delay(5);
+    }
   for(int k = 0; k < 9; k++)
   {
-    HAL_ADC_Start(&hadc1);
-    HAL_StatusTypeDef result = HAL_ADC_PollForConversion(&hadc1, 1000);
-    if(result != HAL_OK)
-    {
-        // printf("ADC ERROR: %d\n", result);
-        return result;
-    }
-    raw[k] += HAL_ADC_GetValue(&hadc1);
-//    float voltage = (float)raw[k] * 0.000805860805860806;
-//    printf("ADC[%d]: %d %0.3f\n", k, raw[k], voltage);
-
-//  }
-//
-      }
-//  for(int k = 0; k < 9; k++)
-//  {
-//      raw[k] = raw[k] >> 3;
-//  }
+      raw[k] = raw[k] >> 3;
+  }
 //    float voltage = 4914 / (float)raw[8];
 //    float step = voltage / 4095.0;
 
-  float inputs[8];
-  float step = 1.2 / (float)raw[8];
+    float inputs[8];
+    float step = 1.2 / (float)raw[8];
     // printf("Step %f Vref: %0.3f Vint: %f\n", step, step*4095.0, (float)raw[8]*step);
     for(int k = 0; k < 8; k++)
     {
-        inputs[k] = (((float)raw[k] * step) * 0.9868) ;
+        inputs[k] = ((float)raw[k] * step);
         // printf("ADC[%d]: %ld %0.3f\n", k, raw[k], inputs[k]);
-
     }
 
+    voltages[0] = inputs[0] - 0.07;
 
-    for(int k = 0; k < 8; k++)
+    for(int k = 1; k < 8; k++)
     {
         // Voltage divider 10K and 10K
         voltages[k] = (inputs[k] * 2);
+        //printf("ADC[%d]: %0.3f\n", k, voltages[k]);
     }
 
     return sample_result;

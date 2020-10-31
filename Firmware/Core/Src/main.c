@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "i2c.h"
 #include "rtc.h"
 #include "spi.h"
 #include "usart.h"
@@ -33,6 +34,7 @@
 #include "Utils/terminal.h"
 #include "stm32f1xx_it.h"
 #include "wrap_cpp.h"
+#include "ssd1306.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,7 +103,6 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -110,7 +111,8 @@ int main(void)
   MX_ADC1_Init();
   MX_USART2_UART_Init();
   MX_RTC_Init();
-  MX_SPI1_Init();
+//  MX_SPI1_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -126,14 +128,25 @@ int main(void)
   terminal_init("io$ ");
   cpp_init();
 
+  ssd1306_Init();
+  ssd1306_SetCursor(0, 0);
+  ssd1306_WriteString("Die \"Cute\" skerm", Font_7x10, White);
+  ssd1306_SetCursor(0, 12);
+  ssd1306_WriteString("Besig...", Font_11x18, White);
+  ssd1306_UpdateScreen();
+
   USART1->CR1 |= USART_CR1_RXNEIE;
   USART1->CR3 |= USART_CR3_EIE;
 
   USART2->CR1 |= USART_CR1_RXNEIE;
   USART2->CR3 |= USART_CR3_EIE;
 
-  uint8_t data[512];
-//  uint32_t tick = 0;
+  char data[512];
+  float shown = 25;
+  uint32_t tick =  HAL_GetTick() + 2000;
+  int sample_tick = 0;
+  int display_tick = 0;
+  float prev_temp = 0;
   while (1)
   {
 	  terminal_run();
@@ -149,13 +162,58 @@ int main(void)
 		  }
 	  }
 
-//	  if(tick < HAL_GetTick())
-//	  {
-//		  tick = HAL_GetTick() + 1000;
-//		  uint8_t buff[64];
-//		  memset(buff, 0xAA, 64);
-//		  HAL_SPI_Transmit(&hspi1, buff, 1, 100);
-//	  }
+	  if(tick < HAL_GetTick())
+	  {
+	      tick = HAL_GetTick() + 100;
+
+	      if(sample_tick-- <= 0)
+	      {
+	          sample_tick = 10;
+	          float voltages[8] = {0};
+	          adc_sample(voltages);
+	          float temp = (voltages[0] * 100.0) - 273.0;
+	          if(((prev_temp - 0.5) > temp) || (temp > (prev_temp + 0.5)))
+	          {
+	              prev_temp = temp;
+	              printf("T: %0.2f\n", temp);
+	          }
+	      }
+
+	      if(((prev_temp - 0.1) > shown) || (shown > (prev_temp + 0.1)))
+	      {
+	          if(prev_temp > shown)
+	              shown += 0.1;
+
+              if(prev_temp < shown)
+                  shown -= 0.1;
+	      }
+
+	      if(display_tick > 0)
+	      {
+	          ssd1306_Fill(Black);
+	          ssd1306_SetCursor(0, 12);
+	          ssd1306_WriteString("Temperatuur", Font_11x18, White);
+	          sprintf(data, "%0.1f C", shown);
+	          ssd1306_SetCursor(0, 30);
+	          ssd1306_WriteString(data, Font_16x26, White);
+	          ssd1306_UpdateScreen();
+	      }
+
+	      if(display_tick-- == 0)
+	      {
+	          ssd1306_Fill(Black);
+	          ssd1306_UpdateScreen();
+	      }
+
+	      uint8_t inputs;
+	      gpio_sample_in(&inputs);
+	      if((inputs & 0x01) == 0)
+	      {
+	          display_tick = 50;
+	      }
+
+	      // cpp_report(1);
+	  }
   }
 
   /* USER CODE END 3 */
