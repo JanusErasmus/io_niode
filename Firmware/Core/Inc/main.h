@@ -84,10 +84,16 @@ void Error_Handler(void);
 #define OUT_2_GPIO_Port GPIOC
 #define OUT_3_Pin GPIO_PIN_9
 #define OUT_3_GPIO_Port GPIOC
+#define NRF_CE_Pin GPIO_PIN_13
+#define NRF_CE_GPIO_Port GPIOA
+#define NRF_IRQ_Pin GPIO_PIN_14
+#define NRF_IRQ_GPIO_Port GPIOA
 #define IN_0_Pin GPIO_PIN_10
 #define IN_0_GPIO_Port GPIOC
 #define OUT_4_Pin GPIO_PIN_12
 #define OUT_4_GPIO_Port GPIOC
+#define SPI1_CS_Pin GPIO_PIN_2
+#define SPI1_CS_GPIO_Port GPIOD
 #define IN_6_Pin GPIO_PIN_6
 #define IN_6_GPIO_Port GPIOB
 #define IN_7_Pin GPIO_PIN_7

@@ -12,6 +12,15 @@
 #include "adc.h"
 #include "gpio.h"
 #include "rtc.h"
+#include "wrap_cpp.h"
+
+void nrfDebug(uint8_t argc, char **argv)
+{
+    cpp_report();
+}
+
+const sTermEntry_t nrfEntry =
+{ "n", "TX NRF", nrfDebug };
 
 void adcDebug(uint8_t argc, char **argv)
 {
@@ -155,6 +164,7 @@ const sTermEntry_t *cli_entries[] =
 	  &tempEntry,
 	  &rsEntry,
 //      &sonoffEntry,
+	  &nrfEntry,
       &rtcEntry,
 	  0
 };

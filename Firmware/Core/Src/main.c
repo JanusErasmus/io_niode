@@ -21,6 +21,7 @@
 #include "main.h"
 #include "adc.h"
 #include "rtc.h"
+#include "spi.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -28,8 +29,10 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Utils/terminal.h"
 #include "stm32f1xx_it.h"
+#include "wrap_cpp.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -107,6 +110,7 @@ int main(void)
   MX_ADC1_Init();
   MX_USART2_UART_Init();
   MX_RTC_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -120,6 +124,7 @@ int main(void)
   printf("APB2    : %lu Hz\n", HAL_RCC_GetPCLK2Freq());
   setbuf(stdout, NULL);
   terminal_init("io$ ");
+  cpp_init();
 
   USART1->CR1 |= USART_CR1_RXNEIE;
   USART1->CR3 |= USART_CR3_EIE;
@@ -128,7 +133,7 @@ int main(void)
   USART2->CR3 |= USART_CR3_EIE;
 
   uint8_t data[512];
-  uint32_t tick = 0;
+//  uint32_t tick = 0;
   while (1)
   {
 	  terminal_run();
@@ -149,8 +154,7 @@ int main(void)
 //		  tick = HAL_GetTick() + 1000;
 //		  uint8_t buff[64];
 //		  memset(buff, 0xAA, 64);
-//		  tx_usart2(buff, 12);
-//		  printf("TX\n");
+//		  HAL_SPI_Transmit(&hspi1, buff, 1, 100);
 //	  }
   }
 
