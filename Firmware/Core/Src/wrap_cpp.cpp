@@ -14,6 +14,7 @@
 #include "adc.h"
 
 extern "C" SPI_HandleTypeDef hspi1;
+extern "C" RTC_HandleTypeDef hrtc;
 
 #define STREET_NODE_ADDRESS     0x002564
 #define UPS_NODE_ADDRESS        0x01
@@ -24,14 +25,14 @@ extern "C" SPI_HandleTypeDef hspi1;
 #define WATER_NODE_ADDRESS      0x06
 #define CLOCK_NODE_ADDRESS      0x07
 #define KITCHEN_NODE_ADDRESS    0x08
-#define IO_NODE_ADDRESS         0x0A
+#define IO_NODE_ADDRESS         0x0B
 
 #define NODE_ADDRESS IO_NODE_ADDRESS
 #define MINIMUM_REPORT_RATE 600000// 1800000
 
 static uint8_t netAddress[] = {0x23, 0x1B, 0x25};
 static uint8_t serverAddress[] = {0x12, 0x3B, 0x45};
-
+static bool reportToServer = false;
 
 enum nodeFrameType_e
 {
@@ -102,15 +103,104 @@ void reportNow(bool sample)
     report(serverAddress, sample);
 }
 
+bool NRFreceivedCB(int pipe, uint8_t *data, int len)
+{
+    if(pipe != 0)
+    {
+        printf(RED("%d NOT correct pipe\n"), pipe);
+        return false;
+    }
 
+    if(CRC_8::crc(data, 32))
+    {
+        printf(RED("CRC error\n"));
+        return false;
+    }
+
+    bool reportNow = false;
+    nodeData_s down;
+    memcpy(&down, data, len);
+    printf("NRF RX [0x%02X]\n", down.nodeAddress);
+
+    //Check of this is not my data
+    if(down.nodeAddress != NODE_ADDRESS)
+    {
+        if(down.nodeAddress == 0xFF)
+        {
+            reportNow = true;
+        }
+        else
+            return false;
+    }
+
+    if(down.frameType == ACKNOWLEDGE)
+    {
+        printf("Main: " GREEN("ACK\n"));
+        return false;
+    }
+
+    printf("RCV Type# %d\n", (int)down.frameType);
+    //printf(" PAYLOAD: %d\n", len);
+    //diag_dump_buf(data, len);
+
+    int hour = (down.timestamp >> 8) & 0xFF;
+    int min = (down.timestamp) & 0xFF;
+    printf("Set time %d:%d\n", hour, min);
+
+    RTC_TimeTypeDef sTime;
+    sTime.Hours = hour;
+    sTime.Minutes = min;
+    sTime.Seconds = 0;
+    HAL_StatusTypeDef result = HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
+    if(result != HAL_OK)
+        printf("Could not set Time!!! %d\n", result);
+
+
+    int month = (down.timestamp >> 24) & 0xFF;
+    int day = (down.timestamp >> 16) & 0xFF;
+    printf("Set date %d:%d\n", month, day);
+
+    RTC_DateTypeDef sDate;
+    HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
+    sDate.Month = month;
+    sDate.Date = day;
+    result = HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
+    if(result != HAL_OK)
+        printf("Could not set Date!!! %d\n", result);
+
+    //Broadcast pipe
+    if(reportNow)
+    {
+        reportToServer = true;
+    }
+
+    //command to node
+    if(down.frameType == COMMAND)
+    {
+        printf("Set Outputs %d\n", down.outputs);
+
+    }
+
+    return false;
+}
 
 static void init()
 {
-    // InterfaceNRF24::init(&hspi1, netAddress, 3);
+    InterfaceNRF24::init(&hspi1, netAddress, 3);
+    InterfaceNRF24::get()->setRXcb(NRFreceivedCB);
 }
 
 static void run()
 {
+    InterfaceNRF24::get()->run();
+    if(reportToServer)
+    {
+        reportToServer = false;
+
+        //before transmitting wait 200 ms intervals of node address
+        HAL_Delay(200 + (NODE_ADDRESS * 200));
+        reportNow(false);
+    }
 }
 
 extern "C" {

@@ -111,8 +111,8 @@ int main(void)
   MX_ADC1_Init();
   MX_USART2_UART_Init();
   MX_RTC_Init();
-//  MX_SPI1_Init();
-  MX_I2C1_Init();
+  MX_SPI1_Init();
+//  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -128,28 +128,30 @@ int main(void)
   terminal_init("io$ ");
   cpp_init();
 
-  ssd1306_Init();
-  ssd1306_SetCursor(0, 0);
-  ssd1306_WriteString("Die \"Cute\" skerm", Font_7x10, White);
-  ssd1306_SetCursor(0, 12);
-  ssd1306_WriteString("Besig...", Font_11x18, White);
-  ssd1306_UpdateScreen();
-
+//=========================== Init Display ====================================
+//  ssd1306_Init();
+//  ssd1306_SetCursor(0, 0);
+//  ssd1306_WriteString("Die \"Cute\" skerm", Font_7x10, White);
+//  ssd1306_SetCursor(0, 12);
+//  ssd1306_WriteString("Besig...", Font_11x18, White);
+//  ssd1306_UpdateScreen();
+//=============================================================================
   USART1->CR1 |= USART_CR1_RXNEIE;
   USART1->CR3 |= USART_CR3_EIE;
 
   USART2->CR1 |= USART_CR1_RXNEIE;
   USART2->CR3 |= USART_CR3_EIE;
 
-  char data[512];
-  float shown = 25;
+  uint8_t data[512];
   uint32_t tick =  HAL_GetTick() + 2000;
+//  float shown = 25;
   int sample_tick = 0;
-  int display_tick = 0;
-  float prev_temp = 0;
+//  int display_tick = 0;
+//  float prev_temp = 0;
   while (1)
   {
 	  terminal_run();
+	  cpp_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -168,51 +170,53 @@ int main(void)
 
 	      if(sample_tick-- <= 0)
 	      {
-	          sample_tick = 10;
-	          float voltages[8] = {0};
-	          adc_sample(voltages);
-	          float temp = (voltages[0] * 100.0) - 273.0;
-	          if(((prev_temp - 0.5) > temp) || (temp > (prev_temp + 0.5)))
-	          {
-	              prev_temp = temp;
-	              printf("T: %0.2f\n", temp);
-	          }
+	          sample_tick = 3000;
+	           cpp_report(1);
+
+//=========================== Display temperature =============================
+//	          float voltages[8] = {0};
+//	          adc_sample(voltages);
+//	          float temp = (voltages[0] * 100.0) - 273.0;
+//	          if(((prev_temp - 0.5) > temp) || (temp > (prev_temp + 0.5)))
+//	          {
+//	              prev_temp = temp;
+//	              printf("T: %0.2f\n", temp);
+//	          }
 	      }
 
-	      if(((prev_temp - 0.1) > shown) || (shown > (prev_temp + 0.1)))
-	      {
-	          if(prev_temp > shown)
-	              shown += 0.1;
-
-              if(prev_temp < shown)
-                  shown -= 0.1;
-	      }
-
-	      if(display_tick > 0)
-	      {
-	          ssd1306_Fill(Black);
-	          ssd1306_SetCursor(0, 12);
-	          ssd1306_WriteString("Temperatuur", Font_11x18, White);
-	          sprintf(data, "%0.1f C", shown);
-	          ssd1306_SetCursor(0, 30);
-	          ssd1306_WriteString(data, Font_16x26, White);
-	          ssd1306_UpdateScreen();
-	      }
-
-	      if(display_tick-- == 0)
-	      {
-	          ssd1306_Fill(Black);
-	          ssd1306_UpdateScreen();
-	      }
-
-	      uint8_t inputs;
-	      gpio_sample_in(&inputs);
-	      if((inputs & 0x01) == 0)
-	      {
-	          display_tick = 50;
-	      }
-
-	      // cpp_report(1);
+//	      if(((prev_temp - 0.1) > shown) || (shown > (prev_temp + 0.1)))
+//	      {
+//	          if(prev_temp > shown)
+//	              shown += 0.1;
+//
+//              if(prev_temp < shown)
+//                  shown -= 0.1;
+//	      }
+//
+//	      if(display_tick > 0)
+//	      {
+//	          ssd1306_Fill(Black);
+//	          ssd1306_SetCursor(0, 12);
+//	          ssd1306_WriteString("Temperatuur", Font_11x18, White);
+//	          sprintf(data, "%0.1f C", shown);
+//	          ssd1306_SetCursor(0, 30);
+//	          ssd1306_WriteString(data, Font_16x26, White);
+//	          ssd1306_UpdateScreen();
+//	      }
+//
+//	      if(display_tick-- == 0)
+//	      {
+//	          ssd1306_Fill(Black);
+//	          ssd1306_UpdateScreen();
+//	      }
+//
+//	      uint8_t inputs;
+//	      gpio_sample_in(&inputs);
+//	      if((inputs & 0x01) == 0)
+//	      {
+//	          display_tick = 50;
+//	      }
+///============================================================================
 	  }
   }
 
