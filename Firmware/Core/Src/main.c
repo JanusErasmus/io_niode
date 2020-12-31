@@ -31,7 +31,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Utils/terminal.h"
+#include "Utils/cli.h"
 #include "stm32f1xx_it.h"
 #include "wrap_cpp.h"
 #include "ssd1306.h"
@@ -125,7 +125,7 @@ int main(void)
   printf("APB1    : %lu Hz\n", HAL_RCC_GetPCLK1Freq());
   printf("APB2    : %lu Hz\n", HAL_RCC_GetPCLK2Freq());
   setbuf(stdout, NULL);
-  terminal_init("io$ ");
+  cli_init("io$ ");
   cpp_init();
 
 //=========================== Init Display ====================================
@@ -150,7 +150,7 @@ int main(void)
 //  float prev_temp = 0;
   while (1)
   {
-	  terminal_run();
+	  cli_run();
 	  cpp_run();
     /* USER CODE END WHILE */
 
@@ -170,7 +170,7 @@ int main(void)
 
 	      if(sample_tick-- <= 0)
 	      {
-	          sample_tick = 3000;
+	          sample_tick = 6000;
 	           cpp_report(1);
 
 //=========================== Display temperature =============================
@@ -292,11 +292,11 @@ PUTCHAR_PROTOTYPE
     HAL_UART_Transmit(&huart1, &cr, 1, 0xFFFF);
   }
 
-  if(ch == '\r')
-  {
-    uint8_t cr = '\n';
-    HAL_UART_Transmit(&huart1, &cr, 1, 0xFFFF);
-  }
+//  if(ch == '\r')
+//  {
+//    uint8_t cr = '\n';
+//    HAL_UART_Transmit(&huart1, &cr, 1, 0xFFFF);
+//  }
 
 
  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);

@@ -18,6 +18,7 @@
 #define COLOR_BOLD(__c,__x)    "\x1b[3" #__c ";1m" __x "\x1b[0m"
 #define UNDERLINE(__x) "\x1b[4m" __x "\x1b[0m"
 #define CLEAR_SCREEN    "\x1b[2J\x1b[H"
+#define CLEAR_LINE    "\x1b[2K"
 #else
 #define COLOR(__c,__x)    __x
 #define COLOR_BOLD(__c,__x) __x

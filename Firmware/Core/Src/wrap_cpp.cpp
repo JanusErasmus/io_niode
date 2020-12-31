@@ -25,7 +25,7 @@ extern "C" RTC_HandleTypeDef hrtc;
 #define WATER_NODE_ADDRESS      0x06
 #define CLOCK_NODE_ADDRESS      0x07
 #define KITCHEN_NODE_ADDRESS    0x08
-#define IO_NODE_ADDRESS         0x0B
+#define IO_NODE_ADDRESS         0x09
 
 #define NODE_ADDRESS IO_NODE_ADDRESS
 #define MINIMUM_REPORT_RATE 600000// 1800000

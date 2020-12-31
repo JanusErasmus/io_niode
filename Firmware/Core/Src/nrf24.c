@@ -1,5 +1,5 @@
 // Functions to manage the nRF24L01+ transceiver
-
+#include <stdio.h>
 #include <string.h>
 
 #include "nrf24.h"

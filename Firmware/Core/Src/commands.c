@@ -156,6 +156,7 @@ const sTermEntry_t *cli_entries[] =
 {
       &hEntry,
       &helpEntry,
+      &histEntry,
       &rebootEntry,
       &bootEntry,
       &adcEntry,

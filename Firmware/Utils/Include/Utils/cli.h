@@ -17,10 +17,12 @@ typedef struct
 }sTermEntry_t;
 
 void cli_init(const char *prompt);
-void cli_handleCommand(char *cmd);
+void cli_handleByte(uint8_t byte);
+void cli_run();
 
 extern const sTermEntry_t hEntry;
 extern const sTermEntry_t helpEntry;
+extern const sTermEntry_t histEntry;
 extern const sTermEntry_t rebootEntry;
 extern const sTermEntry_t bootEntry;
 

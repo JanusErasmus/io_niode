@@ -23,7 +23,7 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Utils/terminal.h"
+#include "Utils/cli.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -227,7 +227,7 @@ void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
     if(USART1->SR & USART_SR_RXNE){
-        terminal_handleByte(huart1.Instance->DR);
+        cli_handleByte(huart1.Instance->DR);
         return;
     }
   /* USER CODE END USART1_IRQn 0 */
