@@ -13,6 +13,7 @@
 #include "gpio.h"
 #include "rtc.h"
 #include "wrap_cpp.h"
+#include "dsb18b20.h"
 
 void nrfDebug(uint8_t argc, char **argv)
 {
@@ -167,5 +168,6 @@ const sTermEntry_t *cli_entries[] =
 //      &sonoffEntry,
 	  &nrfEntry,
       &rtcEntry,
+      &timEntry,
 	  0
 };
