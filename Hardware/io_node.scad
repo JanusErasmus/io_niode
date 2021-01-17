@@ -21,31 +21,35 @@ $fn=64;
 bottom();
 translate([0, board_y + 10, 0]) top();
 
-
-module display_posts()
+module mount()
 {
-    linear_extrude(6){
-        translate([10.5, 11, 0]) circle(d=1.5);
-        translate([-10.5, 11, 0]) circle(d=1.5);
-        translate([10.5, -11, 0]) circle(d=1.5);
-        translate([-10.5, -11, 0]) circle(d=1.5);
+    diameter = 10.5;
+    hole = 5.5;
+    width = 5;
+    
+    rotate([0,0,90])
+    difference(){
+        linear_extrude(3){
+            hull(){
+                translate([0,width / 2, 0]) circle(d=diameter);
+                translate([width / 2, 0, 0]) circle(d=diameter);
+                translate([-width / 2, 0, 0]) circle(d=diameter);
+                
+                sq_width = (width + diameter);
+                
+                translate([-(sq_width/2), -8, 0]) square([sq_width, 2]);
+            }
+        }
+        translate([0,width / 2, -5])  cylinder(h = 10, d=hole);
     }
-}
 
-module display_view()
-{
-    translate([display_x, display_y + 2, -15]){
-    linear_extrude(10){
-            square([23,12], center = true);
-    }
-    }
 }
 
 module bottom() 
 {
     difference() {  
         union() {
-            base();  
+            base(true);  
             
         }        
         wireholes();
@@ -70,18 +74,11 @@ module bottom()
     translate([holes_x/2, holes_y/2, -board_z/2]) cylinder(d = 3, h = 6);
 }
 
-module top(){
-    difference(){
-        top_cover();
-        display_view();
-    }
-}
 
-
-module top_cover() 
+module top() 
 {
     difference() {    
-        base();
+        base(false);
         wireholes();
         translate([0,0,board_z])cube([board_x*2, board_y*2, board_z*2], center = true);    
         intersection() {
@@ -91,18 +88,20 @@ module top_cover()
     }
     
     translate ([-40,-2,-11]) linear_extrude (1.5) text("Januarie 2020", size = 6, halign="left", valign="center");
-    
-    translate ([display_x, display_y, -11]){
-        display_posts();
-    }
 }
 
 
 
-module base () 
+module base (mounts) 
 {
     difference() {
-        rcube([int_x + thickness*2, int_y + thickness*2, board_z + thickness*2], rfillet, center = true);
+       union(){
+           rcube([int_x + thickness*2, int_y + thickness*2, board_z + thickness*2], rfillet, center = true);
+           if(mounts){
+               translate([-52, 0, -11.75]) mount();
+               translate([52, 0, -11.75]) rotate([0,0,180]) mount();
+           }
+       }
         rcube([int_x, int_y, board_z], rfillet, center = true);
 
     }

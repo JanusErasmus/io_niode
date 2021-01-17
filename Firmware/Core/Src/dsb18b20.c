@@ -263,5 +263,5 @@ void dsb_debug(uint8_t argc, char **argv)
         printf("CRC error maybe?\n");
     }
 }
-const sTermEntry_t timEntry =
+const sTermEntry_t dsEntry =
 { "ds", "Sample DS sensor", dsb_debug };

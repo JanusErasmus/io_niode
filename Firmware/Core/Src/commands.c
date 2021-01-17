@@ -165,9 +165,8 @@ const sTermEntry_t *cli_entries[] =
 	  &outEntry,
 	  &tempEntry,
 	  &rsEntry,
-//      &sonoffEntry,
 	  &nrfEntry,
       &rtcEntry,
-      &timEntry,
+	  &dsEntry,
 	  0
 };

@@ -12,6 +12,7 @@
 #include "main.h"
 #include "interface_nrf24.h"
 #include "adc.h"
+#include "dsb18b20.h"
 
 extern "C" SPI_HandleTypeDef hspi1;
 extern "C" RTC_HandleTypeDef hrtc;
@@ -72,7 +73,7 @@ void report(uint8_t *address, bool sample)
     {
         pay.temperature = ((voltages[0] * 100.0) - 273.0) * 1000.0;
         printf("T: %d\n", pay.temperature);
-        pay.voltages[0] = voltages[1] * 1000;
+        pay.voltages[0] = DS18B20_sample(1) * 1000;
         pay.voltages[1] = voltages[2] * 1000;
         pay.voltages[2] = voltages[3] * 1000;
         pay.voltages[3] = voltages[4] * 1000;
@@ -184,10 +185,41 @@ bool NRFreceivedCB(int pipe, uint8_t *data, int len)
     return false;
 }
 
+
+static void make_output()
+{
+//    GPIO_InitTypeDef GPIO_InitStruct = {0};
+//    GPIO_InitStruct.Pin = IN_7_Pin;
+//    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+//    GPIO_InitStruct.Pull = GPIO_NOPULL;
+//    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+//    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    // Streamlined configuration for PB07 as output OD
+    // Set MODE7 = 0x03 (50 MHz Output) , CNF7 = 0x01 (open drain)
+    GPIOB->CRL |= 0x03 << 28 ;
+}
+
+static void make_input()
+{
+//    GPIO_InitTypeDef GPIO_InitStruct = {0};
+//    GPIO_InitStruct.Pin = IN_7_Pin;
+//    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+//    GPIO_InitStruct.Pull = GPIO_NOPULL;
+//    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+//    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    //Streamlined configuration for PB07 as input
+    // Set MODE7 = 0x00 (Input) , CNF7 = 0x01 (floating input)
+    GPIOB->CRL &= ~(0x03 << 28) ;
+}
+
 static void init()
 {
     InterfaceNRF24::init(&hspi1, netAddress, 3);
     InterfaceNRF24::get()->setRXcb(NRFreceivedCB);
+
+    DS18B20_Init(IN_7_GPIO_Port, IN_7_Pin, make_input, make_output);
 }
 
 static void run()
